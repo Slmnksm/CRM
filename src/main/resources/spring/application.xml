@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+          http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+">
+
+    
+    
+    <context:property-placeholder ignore-resource-not-found="true" system-properties-mode="OVERRIDE" location="${applicationConfigFile}"/>
+     
+    <bean id="appConfig" class="tr.kasim.crm.app.AppConfig" scope="singleton">
+        <property name="title" value="селман касим бурдайди"/>
+    </bean>
+    <bean id="application" class="tr.kasim.crm.app.Application" scope="singleton">
+        <property name="config" ref="appConfig"/>
+    </bean>
+    <bean id="mainService" class="tr.kasim.crm.remote.MainService" scope="singleton"></bean>
+    <bean id="firmaService" class="tr.kasim.crm.services.FirmaService" scope="singleton"></bean>
+    <bean id="kullaniciService" class="tr.kasim.crm.services.KullaniciService" scope="singleton"></bean>
+    <bean id="personelKartService" class="tr.kasim.crm.services.PersonelKartService" scope="singleton"></bean>
+    <bean id="gorusmeService" class="tr.kasim.crm.services.GorusmeService" scope="singleton"></bean>
+    <bean id="firsatService" class="tr.kasim.crm.services.FirsatService" scope="singleton"></bean>
+    
+</beans>
